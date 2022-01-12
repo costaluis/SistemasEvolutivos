@@ -5,26 +5,26 @@
 
 #define SOMA_ALVO 5000
 
-class Individuo
-{
-  private:
-    void inicializa_individuo(int size);
+class Individuo {
+ private:
+  void inicializa_individuo(int size);
 
-  public:
-    int fitness;
-    bool* cromossomo;
+ public:
+  int fitness;
+  int num_elementos;
+  bool* cromossomo;
 
-    Individuo operator=(const Individuo &ind) {
-      this->fitness = ind.fitness;
-      for (int i=0; i<TAM_CONJUNTO; i++) {
-        this->cromossomo[i] = ind.cromossomo[i];
-      }
-      return *this;
+  Individuo operator=(const Individuo& ind) {
+    this->fitness = ind.fitness;
+    for (int i = 0; i < TAM_CONJUNTO; i++) {
+      this->cromossomo[i] = ind.cromossomo[i];
     }
+    return *this;
+  }
 
-    void calcula_fitness(int* conjunto);
-    Individuo();
-    ~Individuo();
+  void calcula_fitness(int* conjunto);
+  Individuo();
+  ~Individuo();
 };
 
-#endif // INDIVIDUO_HPP_
+#endif  // INDIVIDUO_HPP_

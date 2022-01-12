@@ -9,23 +9,22 @@
 
 using namespace std;
 
-class Populacao
-{
-  private:
-    int repeticoes = 0;
+class Populacao {
+ private:
+  int repeticoes = 0;
 
-  public:
-    Individuo * individuos;
-    int index_melhor;
-    static int mutacao;
+ public:
+  Individuo* individuos;
+  int index_melhor;
+  static int mutacao;
 
-    static void mudanca_mutacao(int nova_mutacao);
-    void avalia_populacao(int* conjunto);
-    void elitismo(void);
-    void genocidio(void);
+  static void mudanca_mutacao(int nova_mutacao);
+  void avalia_populacao(int* conjunto);
+  void elitismo(void);
+  void genocidio(void);
 
-    Populacao();
-    ~Populacao();
+  Populacao();
+  ~Populacao();
 };
 
-#endif // POPULACAO_HPP_
+#endif  // POPULACAO_HPP_
