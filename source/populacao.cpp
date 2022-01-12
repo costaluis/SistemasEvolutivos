@@ -1,32 +1,9 @@
-#include "subsetsum.hpp"
+#include <iostream>
+#include <stdlib.h>
 
-Individuo::Individuo()
-{
-  this->cromossomo = new bool[TAM_CONJUNTO];
-  this->inicializa_individuo(TAM_CONJUNTO);
-}
+#include "populacao.hpp"
 
-Individuo::~Individuo()
-{
-  // delete[] this->cromossomo;
-}
-
-void Individuo::inicializa_individuo(int size)
-{
-  for (int i=0; i<size; i++) {
-    this->cromossomo[i] = (rand() % 2);
-  }
-}
-
-void Individuo::calcula_fitness(void)
-{ 
-  int soma = 0;
-  for (int i=0; i<TAM_CONJUNTO; i++) {
-    soma += (this->cromossomo[i]) ? conjunto[i] : 0;
-  }
-
-  this->fitness = abs(soma - SOMA_ALVO);
-}
+int Populacao::mutacao = TAXA_MUTACAO;
 
 Populacao::Populacao()
 {
@@ -36,15 +13,13 @@ Populacao::Populacao()
 
 Populacao::~Populacao(){}
 
-
-
-void Populacao::avalia_populacao(void)
+void Populacao::avalia_populacao(int* conjunto)
 {
   int menor_fitness = __INT_MAX__;
   int index_ultimo_melhor = this->index_melhor;
 
   for (int i=0; i<TAM_POPULACAO; i++) {
-    this->individuos[i].calcula_fitness();
+    this->individuos[i].calcula_fitness(conjunto);
 
     if (menor_fitness > this->individuos[i].fitness) {
       menor_fitness = this->individuos[i].fitness;
@@ -98,48 +73,4 @@ void Populacao::genocidio(void)
   delete[] this->individuos;
   this->individuos = new Individuo[TAM_POPULACAO];
   this->individuos[index_melhor] = ind_melhor;
-}
-
-int main()
-{
-  srand(time(NULL));
-  Populacao pop;
-
-  inicia_conjunto(conjunto, TAM_CONJUNTO);
-
-  int soma_pos = 0;
-
-  for (int i=0; i<TAM_CONJUNTO; i++) {
-    if(conjunto[i] > 0) {
-      soma_pos += conjunto[i];
-    }
-  }
-
-  cout << "Soma alvo: " << SOMA_ALVO << endl;
-
-  for (int i=0; ; i++) {
-    pop.avalia_populacao();
-    pop.elitismo();
-
-    cout << endl << "Iteracao: " << i << endl;
-    cout << "Melhor index: " << pop.index_melhor << endl;
-    cout << "Soma positivos: " << soma_pos << endl;
-    cout << "Melhor fitness: " << pop.individuos[pop.index_melhor].fitness << endl;
-    
-    if(pop.individuos[pop.index_melhor].fitness == 0) {
-      break;
-    }
-  }
-
-  int num = 0;
-  for (int i=0; i<TAM_CONJUNTO; i++) {
-    if (pop.individuos[pop.index_melhor].cromossomo[i]) {
-      num++;
-      cout << "(" << conjunto[i] << ")" << " + ";
-    }
-  }
-  
-  cout << endl;
-  cout << "Numeros usados: " << num << endl;
-
 }
