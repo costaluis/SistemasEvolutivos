@@ -1,7 +1,6 @@
 #ifndef SUBSETSUM_HPP_
 #define SUBSETSUM_HPP_
 
-#define ITER_MAX 4000
 #define TAM_CONJUNTO 200
 #define MAX_NUM 100
 #define SOMA_ALVO 0
