@@ -7,14 +7,15 @@
 int Populacao::mutacao = TAXA_MUTACAO;
 
 Populacao::Populacao() {
-  this->index_melhor = -1;
+  this->index_melhor = 0;
+  this->num_genocidios = 0;
   this->individuos = new Individuo[TAM_POPULACAO];
 }
 
 Populacao::~Populacao() {}
 
 void Populacao::avalia_populacao(int* conjunto) {
-  int menor_fitness = __INT_MAX__;
+  int menor_fitness = this->individuos[this->index_melhor].fitness;
   int index_ultimo_melhor = this->index_melhor;
 
   for (int i = 0; i < TAM_POPULACAO; i++) {
@@ -36,12 +37,13 @@ void Populacao::avalia_populacao(int* conjunto) {
     this->repeticoes++;
   } else {
     this->repeticoes = 0;
+    this->num_genocidios = 0;
     Populacao::mudanca_mutacao(TAXA_MUTACAO);
   }
 }
 
 void Populacao::elitismo(void) {
-  cout << "Repeticoes: " << this->repeticoes << endl;
+  // cout << "Repeticoes: " << this->repeticoes << endl;
 
   if (this->repeticoes >= NUM_REPETICOES) {
     this->repeticoes = 0;
@@ -51,7 +53,7 @@ void Populacao::elitismo(void) {
       Populacao::genocidio();
       Populacao::mudanca_mutacao(TAXA_MUTACAO);
     }
-    cout << "Nova mutacao: " << Populacao::mutacao << endl;
+    // cout << "Nova mutacao: " << Populacao::mutacao << endl;
   }
 
   for (int i = 0; i < TAM_POPULACAO; i++) {
@@ -74,5 +76,6 @@ void Populacao::genocidio(void) {
   delete[] this->individuos;
   this->individuos = new Individuo[TAM_POPULACAO];
   this->individuos[index_melhor] = ind_melhor;
+  this->num_genocidios++;
   cout << "Genocidio realizado!" << endl;
 }

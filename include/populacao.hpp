@@ -4,7 +4,7 @@
 #include "individuo.hpp"
 
 #define TAXA_MUTACAO 1
-#define TAM_POPULACAO 5
+#define TAM_POPULACAO 10
 #define NUM_REPETICOES 1000
 
 using namespace std;
@@ -16,6 +16,7 @@ class Populacao {
  public:
   Individuo* individuos;
   int index_melhor;
+  int num_genocidios;
   static int mutacao;
 
   static void mudanca_mutacao(int nova_mutacao);

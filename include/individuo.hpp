@@ -3,8 +3,6 @@
 
 #include "subsetsum.hpp"
 
-#define SOMA_ALVO 5000
-
 class Individuo {
  private:
   void inicializa_individuo(int size);
