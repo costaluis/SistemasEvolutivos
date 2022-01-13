@@ -10,7 +10,6 @@ Individuo::Individuo() {
 }
 
 Individuo::~Individuo() {
-  // delete[] this->cromossomo;
 }
 
 void Individuo::inicializa_individuo(int size) {
