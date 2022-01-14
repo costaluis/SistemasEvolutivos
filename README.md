@@ -76,7 +76,7 @@ Para visualização, acesse o arquivo *Plot Resultados.ipynb* e execute todas as
 </p>
 
 
-OBS: Verifique se a função *read_csv* tem como parâmetro o caminho realtivo para o arquivo de saída do algoritmo evolutivo.
+OBS: Verifique se a função *read_csv* tem como parâmetro o caminho relativo para o arquivo de saída do algoritmo evolutivo.
 
 ## :hammer: Colaboradores 
 
