@@ -60,23 +60,23 @@ Para visualização, acesse o arquivo *Plot Resultados.ipynb* e execute todas as
 * Iterações x Fitness x Número de elementos:
 
 <p align="center">
-  <img src="./docs/images/graph1.png" />
+  <img src="./docs/images/graph1.jpg" />
 </p>
 
 * Iterações x Fitness: 
 
 <p align="center">
-  <img src="./docs/images/graph2.png" />
+  <img src="./docs/images/graph2.jpg" />
 </p>
 
 * Iterações x Número de elementos: 
 
 <p align="center">
-  <img src="./docs/images/graph3.png" />
+  <img src="./docs/images/graph3.jpg" />
 </p>
 
 
-OBS: Verifique se a função *read_csv* tem como parâmetro o caminho realtivo para o arquivo de saída do algoritmo evolutivo.
+OBS: Verifique se a função *read_csv* tem como parâmetro o caminho relativo para o arquivo de saída do algoritmo evolutivo.
 
 ## :hammer: Colaboradores 
 
