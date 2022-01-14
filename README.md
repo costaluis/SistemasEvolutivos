@@ -78,7 +78,11 @@ Para visualização, acesse o arquivo *Plot Resultados.ipynb* e execute todas as
 
 OBS: Verifique se a função *read_csv* tem como parâmetro o caminho relativo para o arquivo de saída do algoritmo evolutivo.
 
-## :hammer: Colaboradores 
+## :movie_camera: Demonstração
+
+O vídeo de demonstração do projeto é pode ser visto neste [link](https://drive.google.com/file/d/1UXqG9WiNM0T28HeAbduzPUTczEpH3HHG/view?usp=sharing).
+
+## :busts_in_silhouette: Colaboradores 
 
 <table>
   <tr>
@@ -108,3 +112,10 @@ OBS: Verifique se a função *read_csv* tem como parâmetro o caminho relativo p
     </td>
   </tr>
 </table>
+
+
+Alunos | NUSP
+-------|------
+João Pedro Fidelis Belluzzo | 10716661
+Leonardo Cerce Guioto | 10716640
+Luis Fernando Costa de Oliveira | 10716532
