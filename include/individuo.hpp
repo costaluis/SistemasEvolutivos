@@ -3,15 +3,17 @@
 
 #include "subsetsum.hpp"
 
+// Classe que representa o individuo
 class Individuo {
  private:
   void inicializa_individuo(int size);
 
  public:
-  int fitness;
-  int num_elementos;
-  bool* cromossomo;
+  int fitness;                        // Fitness do individuo
+  int num_elementos;                  // Numero de elementos do individuo
+  bool* cromossomo;                   // Vetor que indica se o numero daquela posicao do conjunto faz parte do individuo
 
+  // Sobrecarga do = para copiar um individuo
   Individuo operator=(const Individuo& ind) {
     this->fitness = ind.fitness;
     for (int i = 0; i < TAM_CONJUNTO; i++) {

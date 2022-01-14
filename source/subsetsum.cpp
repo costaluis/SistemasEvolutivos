@@ -7,6 +7,7 @@
 #include "individuo.hpp"
 #include "populacao.hpp"
 
+// Inicializa o conjunto de numeros do problema com valores aleatorios
 void inicia_conjunto(int* conjunto, int size) {
   for (int i = 0; i < size; i++) {
     conjunto[i] = (rand() % (MAX_NUM * 2 + 1)) - MAX_NUM;
@@ -26,6 +27,8 @@ int main() {
 
   int soma_pos = 0;
 
+  // Soma de todos os numeros positivos do conjunto
+  // Vai corresponder a maior SOMA_ALVO possivel na execucao
   for (int i = 0; i < TAM_CONJUNTO; i++) {
     if (conjunto[i] > 0) {
       soma_pos += conjunto[i];
@@ -38,6 +41,8 @@ int main() {
     pop.avalia_populacao(conjunto);
     pop.elitismo();
 
+    // Se houver mudanca no indice do melhor...
+    // Printa as informacoes relacionadas e armazena no arquivo de saida
     if (ultimo_index != pop.index_melhor) {
       cout << endl
           << "Iteracao: " << i << endl;
@@ -57,11 +62,13 @@ int main() {
 
       output_file << i << "," << pop.individuos[pop.index_melhor].fitness << "," << num << endl;
     }
+    // Caso o limite de genocidios tenha sido atingido, finaliza o algoritmo evolutivo
     if (pop.num_genocidios > MAX_GENOCIDIOS) {
       break;
     }
   }
 
+  // Print dos elementos do conjunto final, da quantidade de numeros e do fitness atingido
   for (int i=0; i<TAM_CONJUNTO; i++) {
     if (pop.individuos[pop.index_melhor].cromossomo[i]) {
       cout << "(" << conjunto[i] << ")" << " + ";
