@@ -80,7 +80,7 @@ OBS: Verifique se a função *read_csv* tem como parâmetro o caminho relativo p
 
 ## :movie_camera: Demonstração
 
-O vídeo de demonstração do projeto é pode ser visto neste [link](https://drive.google.com/file/d/1UXqG9WiNM0T28HeAbduzPUTczEpH3HHG/view?usp=sharing).
+O vídeo de demonstração do projeto pode ser visto neste [link](https://drive.google.com/file/d/1UXqG9WiNM0T28HeAbduzPUTczEpH3HHG/view?usp=sharing).
 
 ## :busts_in_silhouette: Colaboradores 
 
